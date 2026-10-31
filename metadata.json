@@ -1,0 +1,6 @@
+{
+  "name": "Lumina Dental Studio",
+  "description": "Modern, gentle, and calming dental care in Indiranagar, Bengaluru. Comprehensive general checkups, cosmetic dentistry, clear aligners, and painless dental treatments.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
