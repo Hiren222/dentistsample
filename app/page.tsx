@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ClinicProvider } from '@/lib/clinic-context';
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
 import { ServicesSection } from '@/components/ServicesSection';
@@ -29,54 +28,52 @@ export default function DentalClinicPage() {
   };
 
   return (
-    <ClinicProvider>
-      <div className="min-h-screen flex flex-col bg-[#FAFAF9] text-slate-800">
-        {/* 1. Header with exactly 4 nav links */}
-        <Navbar onOpenBooking={() => scrollToBooking()} />
+    <div className="min-h-screen flex flex-col bg-[#FAFAF9] text-slate-800">
+      {/* 1. Header with exactly 4 nav links */}
+      <Navbar onOpenBooking={() => scrollToBooking()} />
 
-        <main className="flex-grow">
-          {/* 2. Hero */}
-          <Hero onOpenBooking={() => scrollToBooking()} />
+      <main className="flex-grow">
+        {/* 2. Hero */}
+        <Hero onOpenBooking={() => scrollToBooking()} />
 
-          {/* 3. Services */}
-          <ServicesSection
-            onSelectServiceForBooking={(serviceTitle) => scrollToBooking(serviceTitle)}
-          />
+        {/* 3. Services */}
+        <ServicesSection
+          onSelectServiceForBooking={(serviceTitle) => scrollToBooking(serviceTitle)}
+        />
 
-          {/* 4. Why Choose Us */}
-          <WhyChooseUs />
+        {/* 4. Why Choose Us */}
+        <WhyChooseUs />
 
-          {/* 5. Before & After */}
-          <BeforeAfterSlider />
+        {/* 5. Before & After */}
+        <BeforeAfterSlider />
 
-          {/* 6. Meet the Team */}
-          <TeamSection
-            onSelectDoctorForBooking={(doctorName) => scrollToBooking(undefined, doctorName)}
-          />
+        {/* 6. Meet the Team */}
+        <TeamSection
+          onSelectDoctorForBooking={(doctorName) => scrollToBooking(undefined, doctorName)}
+        />
 
-          {/* 7. Patient Reviews */}
-          <ReviewsSection />
+        {/* 7. Patient Reviews */}
+        <ReviewsSection />
 
-          {/* 8. How It Works */}
-          <HowItWorks onOpenBooking={() => scrollToBooking()} />
+        {/* 8. How It Works */}
+        <HowItWorks onOpenBooking={() => scrollToBooking()} />
 
-          {/* 9. FAQ */}
-          <FaqSection />
+        {/* 9. FAQ */}
+        <FaqSection />
 
-          {/* 10. Booking / Contact */}
-          <BookingContactSection
-            key={`${selectedService || 'default'}-${selectedDoctor || 'any'}`}
-            preselectedService={selectedService}
-            preselectedDoctor={selectedDoctor}
-          />
-        </main>
+        {/* 10. Booking / Contact */}
+        <BookingContactSection
+          key={`${selectedService || 'default'}-${selectedDoctor || 'any'}`}
+          preselectedService={selectedService}
+          preselectedDoctor={selectedDoctor}
+        />
+      </main>
 
-        {/* 11. Footer */}
-        <Footer />
+      {/* 11. Footer */}
+      <Footer />
 
-        {/* Mobile Floating "Book Now" Button */}
-        <MobileFloatingCta onOpenBooking={() => scrollToBooking()} />
-      </div>
-    </ClinicProvider>
+      {/* Mobile Floating "Book Now" Button */}
+      <MobileFloatingCta onOpenBooking={() => scrollToBooking()} />
+    </div>
   );
 }

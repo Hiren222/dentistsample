@@ -94,6 +94,8 @@ const jsonLd = {
   },
 };
 
+import { ClinicProvider } from '@/lib/clinic-context';
+
 export default function RootLayout({
   children,
 }: {
@@ -111,7 +113,7 @@ export default function RootLayout({
         className="min-h-screen font-sans selection:bg-teal-500/20 selection:text-teal-900"
         suppressHydrationWarning
       >
-        {children}
+        <ClinicProvider>{children}</ClinicProvider>
       </body>
     </html>
   );

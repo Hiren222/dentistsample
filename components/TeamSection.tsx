@@ -2,8 +2,9 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { DOCTORS } from '@/lib/clinic-data';
-import { GraduationCap, Quote } from 'lucide-react';
+import { GraduationCap, Quote, ArrowRight } from 'lucide-react';
 
 interface TeamSectionProps {
   onSelectDoctorForBooking: (doctorName: string) => void;
@@ -108,6 +109,28 @@ export function TeamSection({ onSelectDoctorForBooking }: TeamSectionProps) {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Banner linking to full About Us Page */}
+        <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-[#FAFAF9] border border-slate-200/90 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="text-center sm:text-left">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-teal-700 bg-teal-50 px-2.5 py-1 rounded-full border border-teal-200">
+              Clinic Story & Accreditations
+            </span>
+            <h4 className="text-lg font-bold text-slate-900 mt-2">
+              Discover our journey, awards, and comfort sanctuary
+            </h4>
+            <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-xl">
+              Learn how we grew from a single dental chair in Indiranagar to a state-of-the-art practice with IDA Karnataka recognition and ISO 9001 certified sterilization.
+            </p>
+          </div>
+          <Link
+            href="/about"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs whitespace-nowrap shadow-sm hover:shadow-md transition-all shrink-0"
+          >
+            <span>Read Our Full Story & Awards</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </div>
     </section>

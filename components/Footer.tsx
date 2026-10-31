@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { useClinic } from '@/lib/clinic-context';
 import {
   Sparkles,
@@ -8,8 +9,6 @@ import {
   Mail,
   MapPin,
   Clock,
-  Shield,
-  Heart,
   Instagram,
   Facebook,
   Linkedin,
@@ -19,13 +18,6 @@ import {
 
 export function Footer() {
   const { clinic } = useClinic();
-
-  const handleScroll = (href: string) => {
-    const el = document.querySelector(href);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <footer className="bg-slate-900 text-slate-300 pt-16 pb-12 border-t border-slate-800">
@@ -38,10 +30,10 @@ export function Footer() {
             </div>
             <div>
               <p className="text-white font-bold text-base sm:text-lg">
-                Experiencing a Dental Emergency or Severe Pain?
+                Severe Toothache or Dental Trauma?
               </p>
               <p className="text-xs sm:text-sm text-slate-400 mt-0.5">
-                We reserve daily emergency slots for urgent toothaches, broken restorations, or trauma.
+                We reserve daily emergency slots in Indiranagar for acute pain and broken teeth.
               </p>
             </div>
           </div>
@@ -56,20 +48,20 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Main 4-Column Footer Directory */}
+        {/* Main Footer Directory */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pt-4">
           {/* Brand & Mission (2 cols) */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-2.5 text-white font-bold text-xl tracking-tight">
+            <Link href="/" className="flex items-center gap-2.5 text-white font-bold text-xl tracking-tight">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-500 text-white shadow-sm">
                 <Sparkles className="w-4 h-4 text-teal-100" />
               </span>
               <span>{clinic.name}</span>
-            </div>
+            </Link>
 
             <p className="text-sm text-slate-400 max-w-sm leading-relaxed">
-              Modern dental wellness in a calm, soothing sanctuary. We believe healthcare should be
-              gentle, completely transparent, and deeply personal.
+              Modern dental wellness in a calm, soothing sanctuary in Indiranagar, Bengaluru.
+              We believe healthcare should be gentle, completely transparent, and free of judgment.
             </p>
 
             <div className="flex items-center gap-3 pt-2">
@@ -114,55 +106,32 @@ export function Footer() {
 
           {/* Quick Links */}
           <div className="space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Quick Links</h4>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Pages</h4>
             <ul className="space-y-2 text-sm text-slate-400">
               <li>
-                <button
-                  onClick={() => handleScroll('#services')}
-                  className="hover:text-teal-400 transition-colors"
-                >
-                  Our Services
-                </button>
+                <Link href="/services" className="hover:text-teal-400 transition-colors">
+                  Services & Procedures
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => handleScroll('#why-us')}
-                  className="hover:text-teal-400 transition-colors"
-                >
-                  Why Choose Us
-                </button>
+                <Link href="/about" className="hover:text-teal-400 transition-colors">
+                  About Our Doctors & Journey
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => handleScroll('#transformations')}
-                  className="hover:text-teal-400 transition-colors"
-                >
-                  Before & After
-                </button>
+                <Link href="/blog" className="hover:text-teal-400 transition-colors">
+                  Dental Tips & Blog
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => handleScroll('#team')}
-                  className="hover:text-teal-400 transition-colors"
-                >
-                  Meet Our Doctors
-                </button>
+                <Link href="/booking" className="hover:text-teal-400 transition-colors">
+                  Book an Appointment
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => handleScroll('#reviews')}
-                  className="hover:text-teal-400 transition-colors"
-                >
-                  Patient Reviews
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => handleScroll('#faq')}
-                  className="hover:text-teal-400 transition-colors"
-                >
-                  Frequently Asked Questions
-                </button>
+                <Link href="/contact" className="hover:text-teal-400 transition-colors">
+                  Contact & Directions
+                </Link>
               </li>
             </ul>
           </div>
@@ -172,59 +141,41 @@ export function Footer() {
             <h4 className="text-xs font-bold uppercase tracking-wider text-white">Treatments</h4>
             <ul className="space-y-2 text-sm text-slate-400">
               <li>
-                <button
-                  onClick={() => handleScroll('#services')}
-                  className="hover:text-teal-400 transition-colors"
-                >
-                  Routine Checkups & Scans
-                </button>
+                <Link href="/services" className="hover:text-teal-400 transition-colors">
+                  Painless Teeth Cleaning
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => handleScroll('#services')}
-                  className="hover:text-teal-400 transition-colors"
-                >
-                  Laser Teeth Whitening
-                </button>
+                <Link href="/services" className="hover:text-teal-400 transition-colors">
+                  In-Office Laser Whitening
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => handleScroll('#services')}
-                  className="hover:text-teal-400 transition-colors"
-                >
-                  3D Guided Dental Implants
-                </button>
+                <Link href="/services" className="hover:text-teal-400 transition-colors">
+                  Invisible Clear Aligners
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => handleScroll('#services')}
-                  className="hover:text-teal-400 transition-colors"
-                >
-                  Clear Aligner Systems
-                </button>
+                <Link href="/services" className="hover:text-teal-400 transition-colors">
+                  Permanent Dental Implants
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => handleScroll('#services')}
-                  className="hover:text-teal-400 transition-colors"
-                >
-                  Gentle Root Canal Therapy
-                </button>
+                <Link href="/services" className="hover:text-teal-400 transition-colors">
+                  Single-Visit Root Canal
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => handleScroll('#services')}
-                  className="hover:text-teal-400 transition-colors"
-                >
-                  Pediatric Child Dentistry
-                </button>
+                <Link href="/services" className="hover:text-teal-400 transition-colors">
+                  Gentle Kids Care
+                </Link>
               </li>
             </ul>
           </div>
 
           {/* Studio Contact */}
           <div className="space-y-3 text-sm text-slate-400">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Studio Info</h4>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Clinic Details</h4>
             <p className="flex items-start gap-2">
               <MapPin className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
               <span>

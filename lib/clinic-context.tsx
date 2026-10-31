@@ -43,7 +43,11 @@ export function ClinicProvider({ children }: { children: React.ReactNode }) {
 export function useClinic() {
   const context = useContext(ClinicContext);
   if (!context) {
-    throw new Error('useClinic must be used within a ClinicProvider');
+    return {
+      clinic: DEFAULT_CLINIC,
+      updateClinic: () => {},
+      resetClinic: () => {},
+    };
   }
   return context;
 }

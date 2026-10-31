@@ -1,14 +1,15 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { useClinic } from '@/lib/clinic-context';
 import { Calendar, Phone, MessageCircle } from 'lucide-react';
 
 interface MobileFloatingCtaProps {
-  onOpenBooking: () => void;
+  onOpenBooking?: () => void;
 }
 
-export function MobileFloatingCta({ onOpenBooking }: MobileFloatingCtaProps) {
+export function MobileFloatingCta({ onOpenBooking }: MobileFloatingCtaProps = {}) {
   const { clinic } = useClinic();
 
   return (
@@ -26,7 +27,9 @@ export function MobileFloatingCta({ onOpenBooking }: MobileFloatingCtaProps) {
 
         {/* Quick WhatsApp */}
         <a
-          href={`https://wa.me/${clinic.whatsappRaw}?text=Hi,%20I%20would%20like%20to%20book%20an%20appointment.`}
+          href={`https://wa.me/${clinic.whatsappRaw}?text=Hi,%20I%20would%20like%20to%20book%20an%20appointment%20at%20${encodeURIComponent(
+            clinic.name
+          )}.`}
           target="_blank"
           rel="noopener noreferrer"
           className="flex flex-col items-center justify-center p-2 rounded-xl text-slate-700 hover:bg-slate-100 shrink-0 text-[10px] font-medium"
@@ -37,13 +40,24 @@ export function MobileFloatingCta({ onOpenBooking }: MobileFloatingCtaProps) {
         </a>
 
         {/* Primary Book Now CTA */}
-        <button
-          onClick={onOpenBooking}
-          className="flex-1 flex items-center justify-center gap-2 py-3 px-4 bg-teal-600 hover:bg-teal-700 active:bg-teal-800 text-white font-bold text-sm rounded-xl shadow-md shadow-teal-600/30 whitespace-nowrap"
-        >
-          <Calendar className="w-4 h-4" />
-          <span>Book Appointment</span>
-        </button>
+        {onOpenBooking ? (
+          <button
+            type="button"
+            onClick={onOpenBooking}
+            className="flex-1 flex items-center justify-center gap-2 py-3 px-4 bg-teal-600 hover:bg-teal-700 active:bg-teal-800 text-white font-bold text-sm rounded-xl shadow-md shadow-teal-600/30 whitespace-nowrap text-center cursor-pointer"
+          >
+            <Calendar className="w-4 h-4" />
+            <span>Book Appointment</span>
+          </button>
+        ) : (
+          <Link
+            href="/booking"
+            className="flex-1 flex items-center justify-center gap-2 py-3 px-4 bg-teal-600 hover:bg-teal-700 active:bg-teal-800 text-white font-bold text-sm rounded-xl shadow-md shadow-teal-600/30 whitespace-nowrap text-center"
+          >
+            <Calendar className="w-4 h-4" />
+            <span>Book Appointment</span>
+          </Link>
+        )}
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { CLINIC_SERVICES, ServiceItem } from '@/lib/clinic-data';
 import {
   ShieldCheck,
@@ -118,7 +119,7 @@ export function ServicesSection({ onSelectServiceForBooking }: ServicesSectionPr
 
                   <button
                     onClick={() => onSelectServiceForBooking(service.title)}
-                    className="px-3.5 py-1.5 text-xs font-semibold text-teal-700 hover:text-white hover:bg-teal-600 bg-teal-50 border border-teal-200/60 rounded-lg transition-colors"
+                    className="px-3.5 py-1.5 text-xs font-semibold text-teal-700 hover:text-white hover:bg-teal-600 bg-teal-50 border border-teal-200/60 rounded-lg transition-colors cursor-pointer"
                   >
                     Book
                   </button>
@@ -126,6 +127,28 @@ export function ServicesSection({ onSelectServiceForBooking }: ServicesSectionPr
               </div>
             );
           })}
+        </div>
+
+        {/* Banner linking to full Filterable Services Page */}
+        <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-white border border-teal-100 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="text-center sm:text-left">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-teal-700 bg-teal-50 px-2.5 py-1 rounded-full border border-teal-200">
+              Interactive Guide
+            </span>
+            <h4 className="text-lg font-bold text-slate-900 mt-2">
+              Want to see step-by-step how each treatment is done?
+            </h4>
+            <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-xl">
+              Filter by everyday concerns, visit duration, pain rating, and exact 4-step procedures written in simple English.
+            </p>
+          </div>
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs whitespace-nowrap shadow-sm hover:shadow-md transition-all shrink-0"
+          >
+            <span>Explore All 6 Detailed Procedures</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </div>
 
